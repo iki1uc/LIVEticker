@@ -2,49 +2,57 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>LIVEticker – RESPO‑Modus</title>
+<title>LIVEticker – AUTO‑Bereitschaft</title>
 
 <style>
   body { background:#000; color:#0f0; font-family:Consolas, monospace; padding:20px; }
-  #LIVE { border:1px solid #0f0; padding:20px; margin-top:20px; white-space:pre; }
+  #AUTO { border:1px solid #0f0; padding:20px; margin-top:20px; white-space:pre; }
 </style>
 </head>
 
 <body>
 
-<h1>LIVEticker – RESPO‑Modus</h1>
-<div id="LIVE"></div>
+<h1>LIVEticker – AUTO‑Bereitschaft</h1>
+<div id="AUTO"></div>
 
 <script>
 
 // ------------------------------------------------------
-// LIVEticker – RESPO‑Modus (nur bereit, keine Engine)
+// AUTO‑Bereitschafts‑Kernel
 // ------------------------------------------------------
 
-const LIVE_TICKER = {
-  MODE: "RESPO",
+const AUTO = {
+  MODE: "AUTO-BEREIT",
   READY: true,
   ACTIVE: false,
 
-  // Anbindungen (nur bereit)
-  LINK: {
-    SEE_U: true,
-    RESPO: true,
-    BIL: true,
-    CUBE_LIVE: true,
-    MXU: true,
+  // Alle Stationen angebunden (aber NICHT aktiv)
+  STATION: {
+    ROOM: true,
+    RUN: true,
+    PIPE: true,
+    LOAD: true,
+    SAVE: true,
+    POOL: true,
+    NC_SYNC: true,
+    NCOCTA: true,
+    SIX_D: true,
+    SIX_E: true,
     RAW: true,
     SLI: true,
+    RESPO: true,
+    CUBE_LIVE: true,
+    SEE_U: true,
     TOOLATOR: true,
-    RUN8: true,
-    ROOM: true,
-    TIME: true,
-    O12: true,
-    BRM: true
+    AUTO_CORE: true,
+    AUTO_LOAD: true,
+    AUTO_PIPE: true,
+    AUTO_POOL: true,
+    AUTO_SAVE: true
   },
 
-  // SEE‑U Krallen
-  CLAWS: {
+  // Krallen / Ports / Achsen bereit
+  PORT: {
     X4: "READY",
     IX: "READY",
     XI: "READY",
@@ -52,21 +60,21 @@ const LIVE_TICKER = {
     AIV: "READY"
   },
 
-  // Engine deaktiviert
+  // Keine Engine aktiv
   ENGINE: null,
   PIPELINE: null,
-  SUPERLAGE: null,
   VECTOR: null,
+  SUPERLAGE: null,
   ORBIT: null,
   PULSE: null,
-  STATION: null,
 
-  BOARD: "LIVEticker sitzt bereit."
+  // Board‑Status
+  BOARD: "LIVEticker ist vollständig angebunden und bereit."
 };
 
 // Ausgabe
-document.getElementById("LIVE").innerText =
-  JSON.stringify(LIVE_TICKER, null, 2);
+document.getElementById("AUTO").innerText =
+  JSON.stringify(AUTO, null, 2);
 
 </script>
 
